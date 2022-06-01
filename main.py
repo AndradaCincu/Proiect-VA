@@ -2,13 +2,13 @@ import numpy as np
 import cv2
 from collections import deque
 
-#default called trackbar function
+#funcția trackbar numită implicit
 def setValues(x):
    print("")
 
 #Vom face Trackbars pentru a aranja valorile HSV în gama de culori necesară pentru obiectul colorat .
 #cream trackbars pentru ajustarea culorilor
-cv2.namedWindow("Color detectors")
+cv2.namedWindow("Color detectors", cv2.WINDOW_NORMAL)
 cv2.createTrackbar("Upper Hue", "Color detectors", 153, 180,setValues)
 cv2.createTrackbar("Upper Saturation", "Color detectors", 255, 255,setValues)
 cv2.createTrackbar("Upper Value", "Color detectors", 255, 255,setValues)
@@ -191,7 +191,8 @@ while True:
 	# Dacă este apăsată tasta "q", opriți aplicația.
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-cv2.imwrite('Frame'+str(i)+'.jpg', paintWindow)
+
+
 # Se eliberează camera și toate resursele
 cap.release()
 cv2.destroyAllWindows()
